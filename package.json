@@ -11,6 +11,7 @@
         "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
     },
     "dependencies": {
+        "activestorage": "^5.2.6",
         "create-react-app": "^5.0.0"
     }
 }

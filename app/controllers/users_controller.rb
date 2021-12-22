@@ -11,11 +11,12 @@ class UsersController < ApplicationController
 
     def show
         user = User.find(params[:id])
-        render json: user, include: :vendor, status: :ok
+        avatar = rails_blob_path(user.avatar)
+        render json: {user: user, avatar: avatar}, include: :vendor, status: :ok
     end
     private
 
     def user_params
-      params.permit(:username, :password, :name, :email, :phone, :address, :DOB, :is_vendor)
+      params.permit(:username, :password, :name, :email, :phone, :address, :DOB, :is_vendor, :avatar)
     end
 end
