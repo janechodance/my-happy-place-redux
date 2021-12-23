@@ -8,6 +8,7 @@ function Navbar() {
        <Link to='/signup'>Sign up</Link> {'   '}
        <Link to='/login'>Log in</Link> {'   '}
        <Link to='/profile'>Profile</Link> {'   '}
+       <Link to='/yourstore'>Your store</Link> {'   '}
        <Link to='/calendar'>Calendar</Link>  {'   '}
        <Link to='/subscription'>Subscription</Link> {'   '}
        <Link to='/order'>Order</Link> {'   '}

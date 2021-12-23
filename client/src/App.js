@@ -10,6 +10,7 @@ import Calendar from './Calender';
 import Subscription from './Subscription';
 import Allstore from './Allstore';
 import Order from './Order';
+import Yourstore from './Yourstore';
 
 function App() {
   const [user, setUser]= useState()
@@ -36,6 +37,7 @@ function App() {
         <Route path='/subscription' element={<Subscription user={user} />} />
         <Route path='/all' element={<Allstore/>} />
         <Route path='/order' element={<Order/>} /> 
+        <Route path='/yourstore' element={<Yourstore user={user}/>}/>
         </>: null}
        
         </Routes>
