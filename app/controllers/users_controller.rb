@@ -6,13 +6,13 @@ class UsersController < ApplicationController
     end
     def index
         users = User.all
-        render json: users, include: :vendors, status: :ok
+        render json: users, status: :ok
     end
 
     def show
         user = User.find(params[:id])
         avatar = rails_blob_path(user.avatar)
-        render json: {user: user, avatar: avatar}, include: :vendor, status: :ok
+        render json: {user: user, avatar: avatar}, include: [:vendor, :vendors], status: :ok
     end
     private
 
