@@ -14,22 +14,24 @@ import Yourstore from './Yourstore';
 
 function App() {
   const [user, setUser]= useState()
-  useEffect(()=>{
-    fetch('users/1')
-    .then(resp => resp.json())
-    .then(data=>{
-        setUser(data);
+  const [loggedInUser, setLoggedInUser]= useState(false)
+  
+//   useEffect(()=>{
+//     fetch('users/5')
+//     .then(resp => resp.json())
+//     .then(data=>{
+//         setUser(data);
         
-    });
-},[]);
+//     });
+// },[]);
   return (
     <div className="App">
       <header className="App-header">
-        <Navbar/>
+        <Navbar loggedInUser={loggedInUser}/>
         <Routes>
         <Route path='/signup' element={<Signup />} />
-        <Route path='/login' element={<Login />} />
-        {user? <>
+        <Route path='/login' element={<Login setUser={setUser} setLoggedInUser={setLoggedInUser}/>} />
+        {loggedInUser? <>
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/profile' element={<Profile user={user}/>} />
         <Route path='/cart' element={<Cart />} />

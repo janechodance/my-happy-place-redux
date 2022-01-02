@@ -13,17 +13,31 @@ Subscription.destroy_all
 Subscription.reset_pk_sequence
 
 jane = User.create(username: 'janecho', password: 'janecho', name:'Jane', email: 'janechodance@gmail.com', phone: '1234567899', address:'111 lake street, New York, NY 11111', DOB:'19931110', is_vendor: true)
-jane.avatar.attach(io: File.open('./public/avatars/IMG_3907 2.jpg'),
-filename: 'IMG_3907 2.jpg', content_type: 'application/jpg')
+jane.avatar.attach(io: File.open('./public/avatars/IMG_3907 2.jpg'), filename: 'IMG_3907 2.jpg', content_type: 'application/jpg')
 jenya = User.create(username: 'jenya', password: 'jenya', name:'Jenya', email: 'jenya@gmail.com', phone: '4567235742', address:'528 93rd st, Brooklyn, NY 14534', DOB:'19890326', is_vendor: false)
+jenya.avatar.attach(io: File.open('./public/avatars/default-profile.jpeg'), filename: 'default-profile.jpeg', content_type: 'application/jpeg')
 keishma = User.create(username: 'keishma', password: 'keishma', name:'Keishma', email: 'keishma@gmail.com', phone: '1357894563', address:'482 46th st, Queens, NY 14134', DOB:'19850924', is_vendor: true)
+keishma.avatar.attach(io: File.open('./public/avatars/default-profile.jpeg'), filename: 'default-profile.jpeg', content_type: 'application/jpeg')
+lauren = User.create(username: 'lauren', password: 'lauren', name:'Lauren', email: 'lauren@gmail.com', phone: '1354891330', address:'58 Main st, Warwick, NY 10910', DOB:'19850320', is_vendor: true)
+lauren.avatar.attach(io: File.open('./public/avatars/default-profile.jpeg'), filename: 'default-profile.jpeg', content_type: 'application/jpeg')
+kim = User.create(username: 'kim', password: 'kim', name:'Kim', email: 'kim@gmail.com', phone: '8459880880', address:'10 Main st, Warwick, NY 10990', DOB:'19831117', is_vendor: true)
+kim.avatar.attach(io: File.open('./public/avatars/default-profile.jpeg'), filename: 'default-profile.jpeg', content_type: 'application/jpeg')
+diara = User.create(username: 'diara', password: 'diara', name:'Diara', email: 'diara@gmail.com', phone: '9178612058', address:'396 E 93rd st, New York, NY 10024', DOB:'19950615', is_vendor: false)
+diara.avatar.attach(io: File.open('./public/avatars/default-profile.jpeg'), filename: 'default-profile.jpeg', content_type: 'application/jpeg')
 thecolorsofelephant = Vendor.create(user_id: jane.id, store_name: 'The colors of Elephant', category: 'jewelry', description: 'Handmade with love, macrame jewelry of your choice.')
 thecolorsofelephant.logo.attach(io: File.open('./public/logos/thecolorsofelephant-logo.PNG'), filename: 'thecolorsofelephant-logo.PNG',  content_type: 'application/png')
 elementalvybe = Vendor.create(user_id: keishma.id, store_name: 'ElementalVybe', category: 'jewelry', description: 'Elementalvybe creates handcrafted one of a kind jewelry using healing cyrtals.')
+soybellocandles = Vendor.create(user_id: lauren.id, store_name: 'Soy Bello Candles', category: 'home goods', description: '100% natural soy wax candles. Hand poured with love. Latino Owned.Family powered.')
+soybellocandles.logo.attach(io: File.open('./public/logos/soybello-logo.jpeg'), filename: 'soybello-logo.jpeg',  content_type: 'application/jpeg')
+shantilife = Vendor.create(user_id: kim.id, store_name: 'Shanti life', category: 'health and wellness', description: 'Shanti Life is more than a cannabis boutique—it represents everything people need in order to optimize their wellbeing and attain true love for themselves.')
+shantilife.logo.attach(io: File.open('./public/logos/shantilife-logo.png'), filename: 'shantilife-logo.png',  content_type: 'application/png')
+
 Subscription.create(user_id: jenya.id, vendor_id: thecolorsofelephant.id)
 Subscription.create(user_id: jenya.id, vendor_id: elementalvybe.id)
 Subscription.create(user_id: keishma.id, vendor_id: thecolorsofelephant.id)
 Subscription.create(user_id: jane.id, vendor_id:elementalvybe.id)
+Subscription.create(user_id: lauren.id, vendor_id:thecolorsofelephant.id)
+Subscription.create(user_id: kim.id, vendor_id:thecolorsofelephant.id)
 
 tiger_eye_necklace = Merchandise.create(vendor_id: thecolorsofelephant.id, item_name: 'Tiger eye necklace', price: 35 ,description:"A tiger's eye stone necklace wrapped with yellow waxed cord with a hint of gold. Manifest your inner strength and immerse in golden confidence.", inventory: 1, is_sold_out: false )
 tiger_eye_necklace.merch.attach(io: File.open('./public/merch/tiger_eye_necklace.jpg'), filename: 'tiger_eye_necklace.jpg',  content_type: 'application/jpg')
