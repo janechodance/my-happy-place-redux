@@ -15,24 +15,44 @@ import Yourstore from './Yourstore';
 function App() {
   const [user, setUser]= useState()
   const [loggedInUser, setLoggedInUser]= useState(false)
+  const [userId, setUserId] = useState()
   
-//   useEffect(()=>{
-//     fetch('users/5')
-//     .then(resp => resp.json())
-//     .then(data=>{
-//         setUser(data);
+  useEffect(()=>{
+    fetch(`users/${userId}`)
+    .then(resp => resp.json())
+    .then(data=>{
+        console.log(data)
+        setUser(data)
+        {userId !== undefined? setLoggedInUser(true): setLoggedInUser(loggedInUser)}
+        console.log("rerender")
         
-//     });
-// },[]);
+    });
+  },[userId]);
+  
+  useEffect(() => {
+    fetch('/me')
+    .then(response => {
+      if (response.ok) {
+        response.json()
+        .then(user => {
+          setUser(user);
+          setLoggedInUser(true);
+        });
+      }
+    });
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
-        <Navbar loggedInUser={loggedInUser}/>
+      My Happy Place
+      </header>
+      <div>
+        <Navbar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} setUser={setUser}/>
         <Routes>
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/login' element={<Login setUser={setUser} setLoggedInUser={setLoggedInUser}/>} />
-        {loggedInUser? <>
+        <Route path='/signup' element={<Signup setUserId={setUserId} />} />
+        <Route path='/login' element={<Login setUser={setUser} setLoggedInUser={setLoggedInUser} setUserId={setUserId}/>} />
         <Route path='/dashboard' element={<Dashboard />} />
+        {loggedInUser? <>
         <Route path='/profile' element={<Profile user={user}/>} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/calendar' element={<Calendar/>} />
@@ -41,9 +61,8 @@ function App() {
         <Route path='/order' element={<Order/>} /> 
         <Route path='/yourstore' element={<Yourstore user={user}/>}/>
         </>: null}
-       
         </Routes>
-      </header>
+        </div>
     </div>
   );
 }

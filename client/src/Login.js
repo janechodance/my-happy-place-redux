@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
-function Login({setUser, setLoggedInUser}) {
+function Login({setUserId, setLoggedInUser}) {
   let navigate = useNavigate();
   const [loginFormData, setLoginFormData] = useState({
     username: '',
@@ -20,9 +20,8 @@ function Login({setUser, setLoggedInUser}) {
   })
   .then(resp => resp.json())
   .then(data => {
-      console.log(data)
-      setUser(data)
-      setLoggedInUser(true)
+      console.log(data.id)
+      setUserId(data.id)
       setLoginFormData({
           username: '',
           password: ''
