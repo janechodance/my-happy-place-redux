@@ -1,13 +1,10 @@
 import {useState} from "react"
-import { DirectUpload } from 'activestorage';
 import {useNavigate} from "react-router-dom";
 function Signup({setUserId}) {
     let navigate = useNavigate();
-    const [avatarId, setAvatarId] = useState()
     const [signupFormData, setSignupFormData] = useState({
       username: '',
       password: '',
-      confirm: '',
       name: '',
       email: '',
       phone: '',
@@ -15,36 +12,15 @@ function Signup({setUserId}) {
       DOB: '',
       is_vendor: ''
     });
-    const [avatar, setAvatar]= useState({})
-    function handleSignupChange(event) {
+    const [avatar, setAvatar]= useState(null)
+    function handleSignupChange(event) { 
       setSignupFormData({...signupFormData, [event.target.name]: event.target.value});
-    } 
+     }
     function handleAvatarChange(event){
-      setAvatar({...avatar, [event.target.name]: event.target.files[0]});
+      setAvatar(event.target.files[0]);
     }
-    uploadFile = (file, user)=>{
-      console.log(file)
-      console.log(user)
-      const upload = new DirectUpload(file, '/rails/active_storage/direct_uploads')
-      upload.create((error, blob) => {
-        if (error) {
-          console.log(error)
-          console.log("it stops here")
-      }else{ 
-          console.log(blob)
-          fetch(`/users/${user.id}`, {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'appliaction/json'
-            },
-            body: JSON.stringify({avatar: blob.signed_id})
-          })
-          .then(resp => resp.json())
-          .then(data => console.log(data))
-        }
-      })
- }
+    
+ 
     function handleSignup(event){
       event.preventDefault();
       console.log(signupFormData)
@@ -61,7 +37,6 @@ function Signup({setUserId}) {
         setSignupFormData({
           username: '',
           password: '',
-          confirm: '',
           name: '',
           email: '',
           phone: '',
@@ -69,9 +44,21 @@ function Signup({setUserId}) {
           DOB: '',
           is_vendor: ''
         });
-        uploadFile(avatar, data)
-        // navigate("/dashboard");
-    });
+        uploadAvatar(avatar, data)
+        navigate("/dashboard");
+    ;
+    })}
+    function uploadAvatar(avatar, data){
+      console.log(avatar)
+      const formData = new FormData()
+      formData.append('user_id', data.id)
+      formData.append('avatar', avatar)
+      fetch('/profilepics', {
+        method: 'POST',
+        body: formData
+      })
+      setAvatar(null)
+      
     }
     
     return (
@@ -97,7 +84,7 @@ function Signup({setUserId}) {
                     placeholder="password"
                 />
                 </label>
-                <label> Confirm Password </label>
+                {/* <label> Confirm Password </label>
                 <label> 
                 <input
                     type='password'
@@ -106,7 +93,7 @@ function Signup({setUserId}) {
                     onChange={handleSignupChange}
                     placeholder="confirm password"
                 />
-                </label>
+                </label> */}
                 </label>
                 <label> Full name: </label>
                 <label> 

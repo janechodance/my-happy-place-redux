@@ -28,7 +28,7 @@ function App() {
         
     });
   },[userId]);
-  
+
   useEffect(() => {
     fetch('/me')
     .then(response => {
