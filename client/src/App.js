@@ -25,7 +25,6 @@ function App() {
         setUser(data)
         {userId !== undefined? setLoggedInUser(true): setLoggedInUser(false)}
         console.log("rerender")
-        
     });
   },[userId]);
 
@@ -41,6 +40,7 @@ function App() {
       }
     });
   }, []);
+ 
   return (
     <div className="App">
       <header className="App-header">
@@ -51,8 +51,8 @@ function App() {
         <Routes>
         <Route path='/signup' element={<Signup setUserId={setUserId} />} />
         <Route path='/login' element={<Login setUser={setUser} setLoggedInUser={setLoggedInUser} setUserId={setUserId}/>} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/all' element={<Allstore user={user}/>} />
+        <Route path='/dashboard' element={<Dashboard user={user} loggedInUser={loggedInUser}/>} />
+        <Route path='/' element={<Allstore user={user}/>} />
         {loggedInUser? <>
         <Route path='/profile' element={<Profile user={user}/>} />
         <Route path='/cart' element={<Cart />} />

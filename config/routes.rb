@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/me", to: "users#show"
   post '/rails/active_storage/direct_uploads', to: 'direct_uploads#create'
+  get "/vendorsmerch/:id", to: "merchandises#merch"
 end
