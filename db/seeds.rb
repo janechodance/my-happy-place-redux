@@ -11,6 +11,8 @@ Vendor.destroy_all
 Vendor.reset_pk_sequence
 Subscription.destroy_all
 Subscription.reset_pk_sequence
+Merchandise.destroy_all
+Merchandise.reset_pk_sequence
 
 jane = User.create(username: 'janecho', password: 'janecho', name:'Jane', email: 'janechodance@gmail.com', phone: '1234567899', address:'111 lake street, New York, NY 11111', DOB:'19931110', is_vendor: true)
 
@@ -27,6 +29,7 @@ diara = User.create(username: 'diara', password: 'diara', name:'Diara', email: '
 thecolorsofelephant = Vendor.create(user_id: jane.id, store_name: 'The colors of Elephant', category: 'jewelry', description: 'Handmade with love, macrame jewelry of your choice.')
 thecolorsofelephant.logo.attach(io: File.open('./public/logos/thecolorsofelephant-logo.PNG'), filename: 'thecolorsofelephant-logo.PNG',  content_type: 'application/png')
 elementalvybe = Vendor.create(user_id: keishma.id, store_name: 'ElementalVybe', category: 'jewelry', description: 'Elementalvybe creates handcrafted one of a kind jewelry using healing cyrtals.')
+elementalvybe.logo.attach(io: File.open('./public/avatars/default-profile.jpeg'), filename: 'default-profile.jpeg', content_type: 'application/jpeg')
 soybellocandles = Vendor.create(user_id: lauren.id, store_name: 'Soy Bello Candles', category: 'home goods', description: '100% natural soy wax candles. Hand poured with love. Latino Owned.Family powered.')
 soybellocandles.logo.attach(io: File.open('./public/logos/soybello-logo.jpeg'), filename: 'soybello-logo.jpeg',  content_type: 'application/jpeg')
 shantilife = Vendor.create(user_id: kim.id, store_name: 'Shanti life', category: 'health and wellness', description: 'Shanti Life is more than a cannabis boutique—it represents everything people need in order to optimize their wellbeing and attain true love for themselves.')
@@ -41,4 +44,6 @@ Subscription.create(user_id: kim.id, vendor_id:thecolorsofelephant.id)
 
 tiger_eye_necklace = Merchandise.create(vendor_id: thecolorsofelephant.id, item_name: 'Tiger eye necklace', price: 35 ,description:"A tiger's eye stone necklace wrapped with yellow waxed cord with a hint of gold. Manifest your inner strength and immerse in golden confidence.", inventory: 1, is_sold_out: false )
 tiger_eye_necklace.merch.attach(io: File.open('./public/merch/tiger_eye_necklace.jpg'), filename: 'tiger_eye_necklace.jpg',  content_type: 'application/jpg')
+ocean_driftwood_candle = Merchandise.create(vendor_id: soybellocandles.id, item_name: 'Ocean Driftwood -Soy Wax Candle-9oz', price: 25 ,description:"A burst of lavender, cedar and amber give this candle a woodsy nautical edge.", inventory: 20, is_sold_out: false )
+ocean_driftwood_candle.merch.attach(io: File.open('./public/merch/ocean-driftwood-candle.jpg'), filename: 'ocean-driftwood-candle.jpg',  content_type: 'application/jpg')
 puts "done seeding..."

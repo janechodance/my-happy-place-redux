@@ -19,8 +19,6 @@ function Signup({setUserId}) {
     function handleAvatarChange(event){
       setAvatar(event.target.files[0]);
     }
-    
- 
     function handleSignup(event){
       event.preventDefault();
       console.log(signupFormData)

@@ -23,7 +23,7 @@ function App() {
     .then(data=>{
         console.log(data)
         setUser(data)
-        {userId !== undefined? setLoggedInUser(true): setLoggedInUser(loggedInUser)}
+        {userId !== undefined? setLoggedInUser(true): setLoggedInUser(false)}
         console.log("rerender")
         
     });
@@ -47,19 +47,19 @@ function App() {
       My Happy Place
       </header>
       <div>
-        <Navbar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} setUser={setUser}/>
+        <Navbar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} setUser={setUser} user={user}/>
         <Routes>
         <Route path='/signup' element={<Signup setUserId={setUserId} />} />
         <Route path='/login' element={<Login setUser={setUser} setLoggedInUser={setLoggedInUser} setUserId={setUserId}/>} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/all' element={<Allstore user={user}/>} />
         {loggedInUser? <>
         <Route path='/profile' element={<Profile user={user}/>} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/calendar' element={<Calendar/>} />
         <Route path='/subscription' element={<Subscription user={user} />} />
-        <Route path='/all' element={<Allstore/>} />
         <Route path='/order' element={<Order/>} /> 
-        <Route path='/yourstore' element={<Yourstore user={user}/>}/>
+        {user.is_vendor ===true ?<Route path='/yourstore' element={<Yourstore id={user.id}/>}/>: null}
         </>: null}
         </Routes>
         </div>

@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
-function Navbar({loggedInUser, setLoggedInUser, setUser}) {
-  console.log(loggedInUser)
+function Navbar({loggedInUser, setLoggedInUser, setUser, user}) {
   let navigate = useNavigate();
   function handleLogOut() {
     fetch("/logout", {
@@ -22,7 +21,7 @@ function Navbar({loggedInUser, setLoggedInUser, setUser}) {
        {loggedInUser === false ? <Link to='/login'>Log In</Link> : <button onClick={handleLogOut}>Logout</button> }
        {loggedInUser === true? <>
        <Link to='/profile'>Profile</Link> {'   '}
-       <Link to='/yourstore'>Your store</Link> {'   '}
+       {user.is_vendor? <Link to='/yourstore'>Your store</Link> : null}
        <Link to='/calendar'>Calendar</Link>  {'   '}
        <Link to='/subscription'>Subscription</Link> {'   '}
        <Link to='/order'>Order</Link> {'   '}

@@ -1,5 +1,5 @@
 function Subscription({user}) {
-    const singlesubscription = user.user.vendors.map((vendor)=> vendor.store_name)
+    const singlesubscription = user.vendors.map((vendor)=> vendor.store_name)
     return (
       <div>
        <h2>Your subscription</h2>
