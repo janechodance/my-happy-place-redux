@@ -12,3 +12,12 @@ body {
   margin-top: 10px;
 
 }
+.calendar{
+  margin-left: 10 px;
+  margin-right: 50%;
+}
+.eventList{
+  margin-right: 10px;
+  margin-left: 55%;
+  
+}

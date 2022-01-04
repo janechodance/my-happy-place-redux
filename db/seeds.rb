@@ -46,4 +46,6 @@ tiger_eye_necklace = Merchandise.create(vendor_id: thecolorsofelephant.id, item_
 tiger_eye_necklace.merch.attach(io: File.open('./public/merch/tiger_eye_necklace.jpg'), filename: 'tiger_eye_necklace.jpg',  content_type: 'application/jpg')
 ocean_driftwood_candle = Merchandise.create(vendor_id: soybellocandles.id, item_name: 'Ocean Driftwood -Soy Wax Candle-9oz', price: 25 ,description:"A burst of lavender, cedar and amber give this candle a woodsy nautical edge.", inventory: 20, is_sold_out: false )
 ocean_driftwood_candle.merch.attach(io: File.open('./public/merch/ocean-driftwood-candle.jpg'), filename: 'ocean-driftwood-candle.jpg',  content_type: 'application/jpg')
+
+Event.create(vendor_id: thecolorsofelephant.id, title: "Soul Sister Vibez Pop Up Shop", start: DateTime.new(2022, 1, 8, 15, 0, 0), end: DateTime.new(2022, 1, 8, 20, 0, 0), type: "" , description: "251 Grand St, Brooklyn, NY 11211")
 puts "done seeding..."

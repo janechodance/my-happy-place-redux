@@ -4,4 +4,5 @@ class Vendor < ApplicationRecord
     has_many :users, through: :subscriptions
     has_one_attached :logo
     has_many :merchandises
+    has_many :events
 end

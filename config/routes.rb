@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :vendors, only: [:index, :show]
   resources :profilepics, only: [:index, :create]
   resources :merchandises
+  resources :events
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/me", to: "users#show"

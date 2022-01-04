@@ -6,7 +6,7 @@ import Dashboard from "./Dashboard";
 import Navbar from "./Navbar";
 import Login from "./Login";
 import Cart from './Cart';
-import Calendar from './Calender';
+import MyCalendar from './Calender';
 import Subscription from './Subscription';
 import Allstore from './Allstore';
 import Order from './Order';
@@ -56,7 +56,7 @@ function App() {
         {loggedInUser? <>
         <Route path='/profile' element={<Profile user={user}/>} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='/calendar' element={<Calendar/>} />
+        <Route path='/calendar' element={<MyCalendar/>} />
         <Route path='/subscription' element={<Subscription user={user} />} />
         <Route path='/order' element={<Order/>} /> 
         {user.is_vendor ===true ?<Route path='/yourstore' element={<Yourstore id={user.id}/>}/>: null}
