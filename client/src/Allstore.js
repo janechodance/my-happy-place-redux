@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Merchandise from "./Merchandise";
 
-function Allstore({user}) {
+function Allstore({user, loggedInUser}) {
   const [vendors, setVendors] = useState([])
   const [show, setShow]= useState(false)
   const [showMerch, setShowMerch] = useState([])
@@ -44,8 +44,8 @@ function Allstore({user}) {
     return (
       <div>
        <h2>All the stores</h2>
-       {vendors.map((vendor)=> <ul key={vendor.id}><div onClick={()=>handleShowMerch(vendor.user_id)}>{vendor.store_name}</div><div>Category: {vendor.category}</div><div>Description: {vendor.description}</div><div>{user !== undefined ?<button onClick={()=>handleSubscribe(vendor.id)}>Subscribe</button>: null}</div></ul>)}
-       {show&&showMerch!==[]? showMerch.map((item)=> <Merchandise key={item.id} id={item.id} item={item} allStore={true}/>) : null}
+       {vendors.map((vendor)=> <ul key={vendor.id}><div onClick={()=>handleShowMerch(vendor.user_id)}>{vendor.store_name}</div><div>Category: {vendor.category}</div><div>Description: {vendor.description}</div><div>{loggedInUser ?<button onClick={()=>handleSubscribe(vendor.id)}>Subscribe</button>: null}</div></ul>)}
+       {show&&showMerch!==[]? showMerch.map((item)=> <Merchandise key={item.id} id={item.id} item={item} allStore={true} loggedInUser={loggedInUser}/>) : null}
       </div>
       
     );

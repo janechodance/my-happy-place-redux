@@ -16,7 +16,7 @@ function Navbar({loggedInUser, setLoggedInUser, setUser, user}) {
       <div>
        <h2>Navbar</h2>
        <Link to='/'>All stores</Link> {'   '}
-       <Link to='/signup'>Sign up</Link> {'   '}
+       {loggedInUser === false? <><Link to='/signup'>Sign up</Link> {'   '}</>:null}
        {loggedInUser === false ? <Link to='/login'>Log In</Link> : <button onClick={handleLogOut}>Logout</button> }
        {loggedInUser === true? <>
         <Link to='/dashboard'>Dashboard</Link> {'   '}

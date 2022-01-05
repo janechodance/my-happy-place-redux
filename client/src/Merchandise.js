@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Merchandise({id, item, allStore}) {
+function Merchandise({id, item, allStore, loggedInUser}) {
   const [itemPicture, setItemPicture] = useState()
   useEffect(()=>{
     fetch(`merchandises/${id}`)

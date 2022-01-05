@@ -55,9 +55,10 @@ function App() {
         <Routes>
         <Route path='/signup' element={<Signup setUserId={setUserId} />} />
         <Route path='/login' element={<Login setUser={setUser} setLoggedInUser={setLoggedInUser} setUserId={setUserId}/>} />
-        <Route path='/dashboard' element={<Dashboard user={user} loggedInUser={loggedInUser}/>} />
-        <Route path='/' element={<Allstore user={user}/>} />
+        {/* <Route path='/dashboard' element={<Dashboard user={user} loggedInUser={loggedInUser}/>} /> */}
+        <Route path='/' element={<Allstore user={user} loggedInUser={loggedInUser}/>} />
         {loggedInUser? <>
+        <Route path='/dashboard' element={<Dashboard user={user} loggedInUser={loggedInUser}/>} />
         <Route path='/profile' element={<Profile user={user}/>} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/subscription' element={<Subscription user={user} />} />

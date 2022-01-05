@@ -8,9 +8,13 @@ function Dashboard({user}) {
   useEffect(()=> {
     console.log("merchToDisplay", merchToDisplay)}, [merchToDisplay])
   function fetchMerch(id){
+    console.log(id)
     fetch(`/vendorsmerch/${id}`)
     .then(resp=>resp.json())
-    .then(data=>{ getMerch(data.id)
+    .then(data=>{ 
+      if (data !==null){
+        getMerch(data.id)
+      } 
       
       })
   }
@@ -28,8 +32,7 @@ function Dashboard({user}) {
       <div>
       {console.log(merchToDisplay)}
        <h2>Dashboard</h2>
-       <h3>render the merchandise from your subscribed stores</h3>
-       {merchToDisplay.map((item)=><Merchandise key={item.id} id={item.id} item={item}/>)}
+       {merchToDisplay.map((item)=><Merchandise key={item.id} id={item.id} item={item} allStore={true}/>)}
       </div>
       )
   }
