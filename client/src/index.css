@@ -3,6 +3,7 @@ body {
   margin: 0;
   font-family: 'Roboto Mono', monospace;
   margin-left: 10px;
+  background-image: url('/Users/Janecho/Development/final-project/final-project/client/src/background/background-1.jpeg');
 }
 .App-header {
   text-align: center;
@@ -20,4 +21,16 @@ body {
   margin-right: 10px;
   margin-left: 55%;
   
+}
+.merchContainer{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
+  gap: 10px;
+  font-size: 15px;
+  text-align: left;
+  padding: 3rem
+}
+.merchDesc{
+  font-size: 12px;
 }

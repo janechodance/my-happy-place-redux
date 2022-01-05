@@ -29,8 +29,10 @@ function Dashboard({user, onAdd}) {
     return (
       <div>
       {console.log(merchToDisplay)}
-       <h2>Dashboard</h2>
+       <h2>{user.name}'s happy place</h2>
+       <div className="merchContainer">
        {merchToDisplay.map((item)=><Merchandise key={item.id} id={item.id} item={item} allStore={true} dashboard={true} onAdd={onAdd}/>)}
+       </div>
       </div>
       )
   }

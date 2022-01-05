@@ -55,7 +55,7 @@ function Yourstore({id}) {
     }
     return (
       <div>
-      {store? <><h2>Your store</h2>
+      {store? <>
       <img src={store.logo} height="200px" width="200px" alt='logo'/>
       <h2>Store name: {store.vendor.store_name}</h2>
       <h2>Category: {store.vendor.category}</h2>
@@ -114,7 +114,9 @@ function Yourstore({id}) {
                     type='submit'
                 />
       </form>: null}
+      <div className="merchContainer">
       {store.vendor.merchandises.map((item)=> <Merchandise key={item.id} id={item.id} item={item}/>)}
+      </div>
       </>: 
       
       <h2>Add a store</h2>}

@@ -12,7 +12,7 @@ function Order({user}) {
       <div>
        <h2>Your Orders</h2>
        {console.log(orderList)}
-       {orderList[0]!==null? orderList.map((singleOrder)=> <><div>Order date:{singleOrder.order_date}</div><div>Total amount: {singleOrder.total}</div></>):null }
+       {orderList[0]!==null? orderList.map((singleOrder)=> <div key={singleOrder.id}><div>Order date:{singleOrder.order_date}</div><div>Total amount: {singleOrder.total}</div></div>):null }
       </div>
     );
   }

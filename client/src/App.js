@@ -28,7 +28,6 @@ function App() {
     .then(data=>{
         console.log(data)
         setUser(data)
-        setLoggedInUser(true)
         {userId !== undefined? setLoggedInUser(true): setLoggedInUser(false)}
         console.log("rerender")
     });
