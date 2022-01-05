@@ -1,10 +1,14 @@
 import {useEffect, useState} from "react"
-function Email({env}) {
+function Email({env, user}) {
     const [feedback, setFeedback] = useState("")
     const [formSubmitted, setFormSubmitted] = useState(false)
     const [formSubmitSuccessful, setFormSubmitSuccessful] = useState(false)
-
-    const senderEmail = "sender@example.com"
+    
+    const senderEmail = user.email
+    const receiverEmail = "janechodance@gmail.com"
+    const eUser = "user_woWFslLlP88BbYoqvmLlH"
+    const templateId = "template_pjzjkqk"
+    const from_name = user.name
     const handleCancel = () => {
     setFeedback("")
     }
@@ -16,18 +20,20 @@ function Email({env}) {
   const handleSubmit = event => {
     event.preventDefault()
   
-    const {
-      REACT_APP_EMAILJS_RECEIVER: receiverEmail,
-      REACT_APP_EMAILJS_TEMPLATEID: templateId,
-      REACT_APP_EMAILJS_USERID: user,
-    } = env
+    // const {
+    //   REACT_APP_EMAILJS_RECEIVER: receiverEmail,
+    //   REACT_APP_EMAILJS_TEMPLATEID: templateId,
+    //   REACT_APP_EMAILJS_USERID: user,
+    // } = env
   
     sendFeedback({
       templateId,
       senderEmail,
       receiverEmail,
       feedback,
-      user,
+      from_name,
+      eUser,
+      
     })
   
     setFormSubmitted(true)
@@ -40,7 +46,8 @@ function Email({env}) {
     senderEmail,
     receiverEmail,
     feedback,
-    user,
+    from_name,
+    eUser,
   }) => {
     window.emailjs
       .send(
@@ -50,8 +57,9 @@ function Email({env}) {
           senderEmail,
           receiverEmail,
           feedback,
+          from_name
         },
-        user
+        eUser
       )
       .then(res => {
         if (res.status === 200) {
@@ -61,9 +69,12 @@ function Email({env}) {
       // Handle errors here however you like
       .catch(err => console.error("Failed to send feedback. Error: ", err))
   }
+  if (formSubmitted && formSubmitSuccessful) {
+    return <h2>Thank You for your feedback and we will get back to you soon!.</h2>
+  }
   return (
     <form className="feedback-form" onSubmit={handleSubmit}>
-      <h1>Your Feedback</h1>
+      <h1>Let us know what you think!</h1>
       <textarea
         className="text-input"
         id="feedback-entry"

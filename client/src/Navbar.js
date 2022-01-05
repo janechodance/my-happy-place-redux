@@ -24,7 +24,7 @@ function Navbar({loggedInUser, setLoggedInUser, setUser, user}) {
        {user.is_vendor? <Link to='/yourstore'>Your store</Link> : null}
        <Link to='/calendar'>Calendar</Link>  {'   '}
        <Link to='/subscription'>Subscription</Link> {'   '}
-       <Link to='/email'>Ask a Question?</Link> {'   '}
+       <Link to='/email'>Feedback</Link> {'   '}
        <Link to='/order'>Order</Link> {'   '}
        <Link to='/cart'>Cart</Link> 
        </>: null}

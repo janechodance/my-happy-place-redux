@@ -64,7 +64,7 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='/subscription' element={<Subscription user={user} />} />
         <Route path='/order' element={<Order/>} /> 
-        <Route path='/email' element={<Email/>}/>
+        <Route path='/email' element={<Email user={user}/>}/>
         {user.is_vendor ===true ?<Route path='/yourstore' element={<Yourstore id={user.id}/>}/>: null}
         {user.is_vendor ===true? <Route path='/calendar' element={<MyCalendar user={user}/>} />: <Route path='/calendar' element={<CustomerCalendar user={user}/>} />}
         </>: null}

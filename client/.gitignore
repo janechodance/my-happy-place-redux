@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+REACT_APP_EMAILJS_USERID=user_woWFslLlP88BbYoqvmLlH
+REACT_APP_EMAILJS_TEMPLATEID=template_s2t1bph
+REACT_APP_EMAILJS_RECEIVER=janechodance@gmail.com
