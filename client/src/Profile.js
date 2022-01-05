@@ -40,6 +40,8 @@ function Profile({user}) {
        <h2>Name: {user.name}</h2>
        <h2>Email: {user.email}</h2>
        <h2>Phone: {user.phone}</h2>
+       <h2>Address: {user.address}</h2>
+       <h2>Date of Birth: {user.DOB}</h2>
        
       </div>
     ): null

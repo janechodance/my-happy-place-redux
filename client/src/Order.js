@@ -10,8 +10,9 @@ function Order({user}) {
   },[]);
     return (
       <div>
-       <h2>Order</h2>
-       {orderList.map((singleOrder)=> <><div>Order date:{singleOrder.order_date}</div><div>Total amount: {singleOrder.total}</div></>)}
+       <h2>Your Orders</h2>
+       {console.log(orderList)}
+       {orderList[0]!==null? orderList.map((singleOrder)=> <><div>Order date:{singleOrder.order_date}</div><div>Total amount: {singleOrder.total}</div></>):null }
       </div>
     );
   }

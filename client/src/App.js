@@ -20,6 +20,7 @@ function App() {
   const [loggedInUser, setLoggedInUser]= useState(false)
   const [userId, setUserId] = useState()
   const [cartItems, setCartItems] = useState([]);
+  const [refresh, setRefresh] = useState(false)
   let navigate = useNavigate()
   useEffect(()=>{
     fetch(`users/${userId}`)
@@ -27,6 +28,7 @@ function App() {
     .then(data=>{
         console.log(data)
         setUser(data)
+        setLoggedInUser(true)
         {userId !== undefined? setLoggedInUser(true): setLoggedInUser(false)}
         console.log("rerender")
     });
@@ -40,12 +42,13 @@ function App() {
         .then(user => {
           setUser(user);
           setLoggedInUser(true);
+          
         });
       }else{
         navigate('/')
       }
     });
-  }, []);
+  }, [refresh]);
   function onAdd(item){
     const exist = cartItems.find((cart) => cart.id === item.id);
     if (exist) {
@@ -78,15 +81,15 @@ function App() {
       My Happy Place
       </header>
       <div>
-        <Navbar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} setUser={setUser} user={user}/>
+        <Navbar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} setUser={setUser} user={user} number={cartItems.length}/>
         <Routes>
         <Route path='/signup' element={<Signup setUserId={setUserId} />} />
         <Route path='/login' element={<Login setUser={setUser} setLoggedInUser={setLoggedInUser} setUserId={setUserId}/>} />
-        <Route path='/' element={<Allstore user={user} loggedInUser={loggedInUser}/>} />
+        <Route path='/' element={<Allstore user={user} loggedInUser={loggedInUser} setRefresh={setRefresh} refresh={refresh}/>} />
         {loggedInUser? <>
         <Route path='/dashboard' element={<Dashboard user={user} loggedInUser={loggedInUser} onAdd={onAdd}/>} />
         <Route path='/profile' element={<Profile user={user}/>} />
-        <Route path='/cart' element={<Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove}/>} />
+        <Route path='/cart' element={<Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} user={user} setCartItems={setCartItems}/>} />
         <Route path='/subscription' element={<Subscription user={user} />} />
         <Route path='/order' element={<Order user={user}/>} /> 
         <Route path='/email' element={<Email user={user}/>}/>

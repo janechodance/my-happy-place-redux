@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Merchandise from "./Merchandise";
 
-function Allstore({user, loggedInUser}) {
+function Allstore({user, loggedInUser, setRefresh, refresh}) {
   const [vendors, setVendors] = useState([])
   const [show, setShow]= useState(false)
   const [showMerch, setShowMerch] = useState([])
@@ -37,7 +37,8 @@ function Allstore({user, loggedInUser}) {
       body: JSON.stringify(subscription)
     })
     .then(resp => resp.json())
-    .then(data=>console.log(data))
+    .then(data=>{console.log(data)
+    setRefresh(!refresh)})
   }
   
   

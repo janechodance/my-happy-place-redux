@@ -16,7 +16,7 @@ function Merchandise({id, item, allStore, dashboard, onAdd}) {
   }
     return (
       <div>
-       <h2>Merch</h2>
+       
        <img src={itemPicture} height="200px" width="200px" alt='itemPicture'/>
        <h2>Item: {item.item_name}</h2>
        <h2>Price: {item.price}</h2>

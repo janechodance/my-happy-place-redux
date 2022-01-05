@@ -1,9 +1,24 @@
-function Cart({cartItems, onAdd, onRemove}) {
+function Cart({cartItems, onAdd, onRemove, user, setCartItems}) {
   console.log(cartItems)
   const total  = cartItems.reduce((a, c) => a + c.total_price, 0);
-  console.log(total)
   function postOrder(order, total){
-    console.log(order, total)
+    const formData = {
+      user_id: user.id,
+      total: total,
+      order_date: new Date()
+    }
+    console.log(formData)
+    fetch('/orders',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+    })
+    .then(resp=> resp.json())
+    .then(data => {alert("Order successfully processed!")
+      setCartItems([])
+      console.log(data)})
   }
     return (
       <div>
