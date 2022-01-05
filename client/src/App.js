@@ -19,6 +19,7 @@ function App() {
   const [user, setUser]= useState()
   const [loggedInUser, setLoggedInUser]= useState(false)
   const [userId, setUserId] = useState()
+  const [cartItems, setCartItems] = useState([]);
   let navigate = useNavigate()
   useEffect(()=>{
     fetch(`users/${userId}`)
@@ -45,6 +46,31 @@ function App() {
       }
     });
   }, []);
+  function onAdd(item){
+    const exist = cartItems.find((cart) => cart.id === item.id);
+    if (exist) {
+      setCartItems(
+        cartItems.map((cart) =>
+          cart.id === item.id ? { ...exist, qty: exist.qty + 1 , total_price: exist.price*(exist.qty+1)} : cart
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...item, qty: 1 , total_price: item.price}]);
+    }
+  }
+  function onRemove(item){
+    const exist = cartItems.find((cart) => cart.id === item.id)
+    if (exist.qty === 1){
+      setCartItems(cartItems.filter((cart) => cart.id !== item.id))
+    }else {
+      setCartItems(
+        cartItems.map((cart) =>
+          cart.id === item.id ? { ...exist, qty: exist.qty - 1, total_price: exist.price*(exist.qty-1) } : cart
+        )
+      )
+    }
+  }
+  
  
   return (
     <div className="App">
@@ -56,14 +82,13 @@ function App() {
         <Routes>
         <Route path='/signup' element={<Signup setUserId={setUserId} />} />
         <Route path='/login' element={<Login setUser={setUser} setLoggedInUser={setLoggedInUser} setUserId={setUserId}/>} />
-        {/* <Route path='/dashboard' element={<Dashboard user={user} loggedInUser={loggedInUser}/>} /> */}
         <Route path='/' element={<Allstore user={user} loggedInUser={loggedInUser}/>} />
         {loggedInUser? <>
-        <Route path='/dashboard' element={<Dashboard user={user} loggedInUser={loggedInUser}/>} />
+        <Route path='/dashboard' element={<Dashboard user={user} loggedInUser={loggedInUser} onAdd={onAdd}/>} />
         <Route path='/profile' element={<Profile user={user}/>} />
-        <Route path='/cart' element={<Cart />} />
+        <Route path='/cart' element={<Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove}/>} />
         <Route path='/subscription' element={<Subscription user={user} />} />
-        <Route path='/order' element={<Order/>} /> 
+        <Route path='/order' element={<Order user={user}/>} /> 
         <Route path='/email' element={<Email user={user}/>}/>
         {user.is_vendor ===true ?<Route path='/yourstore' element={<Yourstore id={user.id}/>}/>: null}
         {user.is_vendor ===true? <Route path='/calendar' element={<MyCalendar user={user}/>} />: <Route path='/calendar' element={<CustomerCalendar user={user}/>} />}

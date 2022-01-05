@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Merchandise({id, item, allStore, loggedInUser}) {
+function Merchandise({id, item, allStore, dashboard, onAdd}) {
   const [itemPicture, setItemPicture] = useState()
   useEffect(()=>{
     fetch(`merchandises/${id}`)
@@ -23,6 +23,7 @@ function Merchandise({id, item, allStore, loggedInUser}) {
        <h2>Description: {item.description}</h2>
        <h2>{item.inventory} in stock</h2>
        {allStore? null: <button onClick={handleDelete}>Delete</button>}
+       {dashboard? <button onClick={()=>onAdd(item)}>Add to cart</button>: null}
       </div>
     );
   }

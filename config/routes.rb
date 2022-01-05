@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   resources :profilepics, only: [:index, :create]
   resources :merchandises
   resources :events
+  resources :orders, only: [:index, :create]
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/me", to: "users#show"
   post '/rails/active_storage/direct_uploads', to: 'direct_uploads#create'
   get "/vendorsmerch/:id", to: "merchandises#merch"
+  get "/get_orders/:id", to: "orders#get_orders"
 end

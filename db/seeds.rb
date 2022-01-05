@@ -15,6 +15,8 @@ Merchandise.destroy_all
 Merchandise.reset_pk_sequence
 Event.destroy_all
 Event.reset_pk_sequence
+Order.destroy_all
+Order.reset_pk_sequence
 
 jane = User.create(username: 'janecho', password: 'janecho', name:'Jane', email: 'janechodance@gmail.com', phone: '1234567899', address:'111 lake street, New York, NY 11111', DOB:'19931110', is_vendor: true)
 
@@ -39,6 +41,7 @@ shantilife.logo.attach(io: File.open('./public/logos/shantilife-logo.png'), file
 
 Subscription.create(user_id: jenya.id, vendor_id: thecolorsofelephant.id)
 Subscription.create(user_id: jenya.id, vendor_id: elementalvybe.id)
+Subscription.create(user_id: jenya.id, vendor_id: soybellocandles.id)
 Subscription.create(user_id: keishma.id, vendor_id: thecolorsofelephant.id)
 Subscription.create(user_id: jane.id, vendor_id:elementalvybe.id)
 Subscription.create(user_id: lauren.id, vendor_id:thecolorsofelephant.id)
@@ -50,4 +53,6 @@ ocean_driftwood_candle = Merchandise.create(vendor_id: soybellocandles.id, item_
 ocean_driftwood_candle.merch.attach(io: File.open('./public/merch/ocean-driftwood-candle.jpg'), filename: 'ocean-driftwood-candle.jpg',  content_type: 'application/jpg')
 
 Event.create(vendor_id: thecolorsofelephant.id, title: "Soul Sister Vibez Pop Up Shop", start: DateTime.new(2022, 1, 8, 15, 0, 0), end: DateTime.new(2022, 1, 8, 20, 0, 0), type: "" , description: "251 Grand St, Brooklyn, NY 11211")
+
+Order.create(user_id: jenya.id, total: 60, order_date: Date.new(2021,12,15))
 puts "done seeding..."
