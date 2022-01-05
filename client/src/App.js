@@ -13,6 +13,7 @@ import Allstore from './Allstore';
 import Order from './Order';
 import Yourstore from './Yourstore';
 import CustomerCalendar from './CalenderCustomer';
+import Email from './Email';
 
 function App() {
   const [user, setUser]= useState()
@@ -63,6 +64,7 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='/subscription' element={<Subscription user={user} />} />
         <Route path='/order' element={<Order/>} /> 
+        <Route path='/email' element={<Email/>}/>
         {user.is_vendor ===true ?<Route path='/yourstore' element={<Yourstore id={user.id}/>}/>: null}
         {user.is_vendor ===true? <Route path='/calendar' element={<MyCalendar user={user}/>} />: <Route path='/calendar' element={<CustomerCalendar user={user}/>} />}
         </>: null}
