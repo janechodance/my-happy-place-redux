@@ -13,6 +13,8 @@ Subscription.destroy_all
 Subscription.reset_pk_sequence
 Merchandise.destroy_all
 Merchandise.reset_pk_sequence
+Event.destroy_all
+Event.reset_pk_sequence
 
 jane = User.create(username: 'janecho', password: 'janecho', name:'Jane', email: 'janechodance@gmail.com', phone: '1234567899', address:'111 lake street, New York, NY 11111', DOB:'19931110', is_vendor: true)
 

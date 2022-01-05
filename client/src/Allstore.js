@@ -5,6 +5,7 @@ function Allstore({user}) {
   const [vendors, setVendors] = useState([])
   const [show, setShow]= useState(false)
   const [showMerch, setShowMerch] = useState([])
+  
   useEffect(()=>{
     fetch('/vendors')
     .then(resp => resp.json())

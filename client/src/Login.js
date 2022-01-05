@@ -26,7 +26,7 @@ function Login({setUserId, setLoggedInUser}) {
           username: '',
           password: ''
       });
-      navigate("/dashboard");
+      navigate("/");
   });
 }
     return (

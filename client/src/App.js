@@ -1,4 +1,5 @@
 import {Route, Routes} from 'react-router-dom';
+import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react"
 import Signup from "./Signup";
 import Profile from "./Profile";
@@ -11,12 +12,13 @@ import Subscription from './Subscription';
 import Allstore from './Allstore';
 import Order from './Order';
 import Yourstore from './Yourstore';
+import CustomerCalendar from './CalenderCustomer';
 
 function App() {
   const [user, setUser]= useState()
   const [loggedInUser, setLoggedInUser]= useState(false)
   const [userId, setUserId] = useState()
-  
+  let navigate = useNavigate()
   useEffect(()=>{
     fetch(`users/${userId}`)
     .then(resp => resp.json())
@@ -37,6 +39,8 @@ function App() {
           setUser(user);
           setLoggedInUser(true);
         });
+      }else{
+        navigate('/')
       }
     });
   }, []);
@@ -56,10 +60,10 @@ function App() {
         {loggedInUser? <>
         <Route path='/profile' element={<Profile user={user}/>} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='/calendar' element={<MyCalendar/>} />
         <Route path='/subscription' element={<Subscription user={user} />} />
         <Route path='/order' element={<Order/>} /> 
         {user.is_vendor ===true ?<Route path='/yourstore' element={<Yourstore id={user.id}/>}/>: null}
+        {user.is_vendor ===true? <Route path='/calendar' element={<MyCalendar user={user}/>} />: <Route path='/calendar' element={<CustomerCalendar user={user}/>} />}
         </>: null}
         </Routes>
         </div>
