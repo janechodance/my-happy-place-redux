@@ -75,6 +75,7 @@ delta8_gummies = Merchandise.create(vendor_id: shantilife.id, item_name: 'Delta8
 delta8_gummies.merch.attach(io: File.open('./public/merch/gummies.jpg'), filename: 'gummies.jpg',  content_type: 'application/jpg')
 
 Event.create(vendor_id: thecolorsofelephant.id, title: "Soul Sister Vibez Pop Up Shop", start: DateTime.new(2022, 1, 8, 15, 0, 0), end: DateTime.new(2022, 1, 8, 20, 0, 0), type: "" , description: "251 Grand St, Brooklyn, NY 11211")
+Event.create(vendor_id: shantilife.id, title: "Warwick Market", start: DateTime.new(2022, 1, 15, 10, 0, 0), end: DateTime.new(2022, 1, 15, 15, 0, 0), type: "" , description: "21 South St, Warwick, NY 10990")
 
 Order.create(user_id: jenya.id, total: 60, order_date: Date.new(2021,12,15))
 puts "done seeding..."

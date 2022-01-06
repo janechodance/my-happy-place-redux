@@ -15,6 +15,7 @@ export default function MyCalendar({user}) {
   const [showForm, setShowForm] = useState(false)
   const [showUpdateForm, setShowUpdateForm] = useState(false)
   const [eventId, setEventId]= useState()
+  const [update, setUpdate] =useState(false)
   const [formData, setFormData] = useState({
     vendor_id: user.vendor.id,
     title: '',
@@ -64,6 +65,8 @@ export default function MyCalendar({user}) {
     fetch(`events/${id}`, {
       method: 'DELETE'
     })
+    .then(setUpdate(!update))
+
   }
   function updateClick(event){
     console.log(event)

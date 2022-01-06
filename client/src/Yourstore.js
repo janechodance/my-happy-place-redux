@@ -12,7 +12,7 @@ function Yourstore({id, setRefresh, refresh}) {
           setStore(data);
           console.log(data)
       });
-  },[]);
+  },[update]);
     const [merchData, setMerchData] = useState({
       vendor_id: id,
       item_name: '',
@@ -43,7 +43,8 @@ function Yourstore({id, setRefresh, refresh}) {
         body: formData
       })
       .then(resp=> resp.json())
-      .then(data => console.log(data))
+      .then(data => {console.log(data)
+      setUpdate(!update)})
       setMerchData({
         vendor_id: id,
         item_name: '',
@@ -51,9 +52,30 @@ function Yourstore({id, setRefresh, refresh}) {
         description: '',
         inventory: '',
         is_sold_out: false
-      })
+      }
+      )
       setMerch(null)
-    
+      
+    }
+    function getUpdate(formData,id){
+      console.log(id)
+      fetch(`merchandises/${id}`, {
+        method: 'PATCH',
+        body:
+          formData
+        
+      })
+      .then(resp=> resp.json())
+      .then(data => {console.log(data)
+        
+        setUpdate(!update)
+      })
+    }
+    function getDelete(id){
+      fetch(`merchandises/${id}`, {
+        method: 'DELETE'
+      })
+      .then(setUpdate(!update))
     }
     return (
       <div>
@@ -117,7 +139,7 @@ function Yourstore({id, setRefresh, refresh}) {
                 />
       </form>: null}
       <div className="merchContainer">
-      {store.vendor.merchandises.map((item)=> <Merchandise key={item.id} id={item.id} item={item} setUpdate={setUpdate} update={update} setRefresh={setRefresh} refresh={refresh}/>)}
+      {store.vendor.merchandises.map((item)=> <Merchandise key={item.id} id={item.id} item={item} getUpdate={getUpdate} getDelete={getDelete} />)}
       </div>
       </>: 
       

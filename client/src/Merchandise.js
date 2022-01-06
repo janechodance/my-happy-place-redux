@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Merchandise({id, item, allStore, dashboard, onAdd,setUpdate, update}) {
+function Merchandise({id, item, allStore, dashboard, onAdd,getUpdate, getDelete}) {
   console.log(item)
   const [itemPicture, setItemPicture] = useState()
   const [showForm, setShowForm] = useState(false)
@@ -11,13 +11,13 @@ function Merchandise({id, item, allStore, dashboard, onAdd,setUpdate, update}) {
         setItemPicture(data.merch)
     });
   },[]);
-  function handleDelete(){
+  function handleDelete(id){
     fetch(`merchandises/${id}`, {
       method: 'DELETE'
     })
   }
   const [merchData, setMerchData] = useState({
-    vendor_id: id,
+    vendor_id: item.vendor_id,
     item_name: item.item_name,
     price: item.price,
     description: item.description,
@@ -34,21 +34,15 @@ function Merchandise({id, item, allStore, dashboard, onAdd,setUpdate, update}) {
   function handleUpdate(event){
     event.preventDefault();
     const formData = new FormData()
-    formData.append('vendor_id', id)
+    formData.append('vendor_id', item.vendor_id)
     formData.append('item_name', merchData.item_name)
     formData.append('price',merchData.price)
     formData.append('description', merchData.description)
     formData.append('inventory', merchData.inventory)
     formData.append('is_sold_out', false)
     formData.append('merch', merch)
-    fetch(`merchandises/${item.id}`, {
-      method: 'PATCH',
-      body: formData
-    })
-    .then(resp=> resp.json())
-    .then(data => {console.log(data)})
-    
-    setUpdate(!update)
+    getUpdate(formData, item.id)
+    setShowForm(!showForm)
     
   }
     return (
@@ -61,7 +55,7 @@ function Merchandise({id, item, allStore, dashboard, onAdd,setUpdate, update}) {
        <h2 className="merchDesc">Description: {item.description}</h2>
        <h2>{item.inventory!==0? "In stock": "Out of stock"}</h2>
        </div>
-       {allStore? null: <div className="store_merch"><button onClick={handleDelete}>Delete</button><button onClick={()=>setShowForm(!showForm)}>Update</button></div>}
+       {allStore? null: <div className="store_merch"><button onClick={()=>getDelete(item.id)}>Delete</button><button onClick={()=>setShowForm(!showForm)}>Update</button></div>}
        {showForm? <form onSubmit={handleUpdate}>
          <label> Item Name: </label>
                 <label>
