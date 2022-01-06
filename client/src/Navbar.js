@@ -14,20 +14,24 @@ function Navbar({loggedInUser, setLoggedInUser, setUser, user, number}) {
 }
     return (
       <div>
-       {loggedInUser === true?<h2>Hello! {user.name}</h2>:null}
-       <Link to='/'>All stores</Link> {'   '}
-       {loggedInUser === false? <><Link to='/signup'>Sign up</Link> {'   '}</>:null}
-       {loggedInUser === false ? <Link to='/login'>Log In</Link> : <button onClick={handleLogOut}>Logout</button>  }
+        {loggedInUser === true?<h2 className='greeting'>Hello {user.name}!</h2>:null}
+      <div className='NavBar'>
+       
+       <Link to='/'><button>All stores</button></Link> {'   '}
+       
        {loggedInUser === true? <>
-        <Link to='/dashboard'>Dashboard</Link> {'   '}
-       <Link to='/profile'>Profile</Link> {'   '}
-       {user.is_vendor? <><Link to='/yourstore'>Your store</Link> {'   '}</>: null}
-       <Link to='/calendar'>Calendar</Link>  {'   '}
-       <Link to='/subscription'>Subscription</Link> {'   '}
-       <Link to='/email'>Feedback</Link> {'   '}
-       <Link to='/order'>Orders</Link> {'   '}
-       <Link to='/cart'>Cart {number}</Link> 
+        <Link to='/dashboard'><button>Dashboard</button></Link> {'   '}
+       <Link to='/profile'><button>Profile</button></Link> {'   '}
+       {user.is_vendor? <><Link to='/yourstore'><button>Your store</button></Link> {'   '}</>: null}
+       <Link to='/calendar'><button>Calendar</button></Link>  {'   '}
+       <Link to='/subscription'><button>Subscription</button></Link> {'   '}
+       <Link to='/email'><button>Feedback</button></Link> {'   '}
+       <Link to='/order'><button>Orders</button></Link> {'   '}
+       <Link to='/cart'><button>Cart {number}</button></Link> {'   '}
        </>: null}
+       {loggedInUser === false? <><Link to='/signup'><button>Sign up</button></Link> {'   '}</>:null}
+       {loggedInUser === false ? <Link to='/login'><button>Log In</button></Link> : <button onClick={handleLogOut}>Logout</button>  }
+      </div>
       </div>
     );
   }

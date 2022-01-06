@@ -3,6 +3,7 @@ import Merchandise from "./Merchandise";
 function Dashboard({user, onAdd}) {
   console.log(user.vendors)
   const [merchToDisplay, setMerchToDisplay] = useState([])
+  const [refresh, setRefresh] = useState(false)
   
   useEffect(()=> {user.vendors.map((vendor)=> fetchMerch(vendor.id))},[])
   
@@ -16,6 +17,7 @@ function Dashboard({user, onAdd}) {
         data.map((item)=>newMerchToDisplay.push(item))
         console.log(newMerchToDisplay)
         setMerchToDisplay(newMerchToDisplay)
+        setRefresh(!refresh)
       } 
       })
   }

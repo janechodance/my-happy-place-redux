@@ -44,7 +44,7 @@ function Allstore({user, loggedInUser, setRefresh, refresh}) {
   
     return (
       <div>
-       <h2>All the stores</h2>
+       
        {vendors.map((vendor)=> <ul key={vendor.id}><div onClick={()=>handleShowMerch(vendor.user_id)}>{vendor.store_name}</div><div>Category: {vendor.category}</div><div>Description: {vendor.description}</div><div>{loggedInUser ?<button onClick={()=>handleSubscribe(vendor.id)}>Subscribe</button>: null}</div></ul>)}
        <div className="merchContainer">
        {show&&showMerch!==[]? showMerch.map((item)=> <Merchandise key={item.id} id={item.id} item={item} allStore={true} loggedInUser={loggedInUser}/> ) : null}

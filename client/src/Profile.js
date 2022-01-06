@@ -21,9 +21,10 @@ function Profile({user}) {
     
   }
     return user? (
-      <div>
+      <div className="profile_box">
+      <div className="profile">
        <h2>Profile</h2>
-       {user.profilepic !== null ? <img src={user.profilepic.avatar} height="200px" width="200px" alt='profile'/> : <button onClick={()=>setUpload(!upload)}>Upload Profile Picture </button>}
+       {user.profilepic !== null ? <img className="profile_pic" src={user.profilepic.avatar} height="200px" width="200px" alt='profile'/> : <button onClick={()=>setUpload(!upload)}>Upload Profile Picture </button>}
        {upload? <><form onSubmit={uploadAvatar}>
                 <label> Profile Picture: </label>
                 <label>
@@ -43,6 +44,7 @@ function Profile({user}) {
        <h2>Address: {user.address}</h2>
        <h2>Date of Birth: {user.DOB}</h2>
        
+      </div>
       </div>
     ): null
   }

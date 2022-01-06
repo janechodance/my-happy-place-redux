@@ -5,14 +5,15 @@ body {
   margin: 0;
   font-family: 'Roboto Mono', monospace;
   margin-left: 15px;
-  
+  font-weight: bolder;
   /* background-image: url('/Users/Janecho/Development/final-project/final-project/client/src/background/background-1.jpeg'); */
   min-height: 100%;
   background-image: url('/Users/Janecho/Development/final-project/final-project/client/src/background/background-1.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-attachment: fixed
+  background-attachment: fixed;
+  
 }
 
 
@@ -22,16 +23,41 @@ body {
   font-family: 'Dancing Script', cursive;
   font-size: 50px;
   color: purple;
-  margin-top: 10px;
+  margin-top: 25px;
+  padding-top: 25px;
 
 }
-.calendar{
-  margin-left: 10 px;
-  margin-right: 50%;
+.greeting {
+  font-family: 'Dancing Script', cursive;
+  font-size: 30px;
+  color: purple;
+  margin-top: 10px;
+  padding-top: 10px;
+
 }
+
+.calendar {
+  vertical-align:top;
+  display: inline-block;
+  width:55%;
+  
+  border-radius: 1rem;
+    
+   
+}  
+
 .eventList{
-  margin-right: 10px;
-  margin-left: 55%;
+  vertical-align:top;
+  display: inline-block;
+    width:40%;
+    margin-left: 20px;
+    background-color:#B0A8B9;
+    border-radius: 1rem; 
+    opacity: 0.6;
+    font-style: oblique;
+    color:purple;
+    padding-right: 10px;
+    padding-left: 10px;
   
 }
 .merchContainer{
@@ -53,7 +79,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  
+  opacity: 0.8;
 }
 .merch_image{
     margin-top: 10px;
@@ -73,4 +99,143 @@ body {
   margin-left: 40px;
   margin-bottom: 10px;
   width: 50%;
+}
+.profile_pic{
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #cddc39;
+}
+.NavBar button {
+  padding:10px;
+  border:none;
+  background-color:#B0A8B9;
+  color:#FFFADE;
+  font-weight:500;
+  border-radius:5px;
+  cursor: pointer;
+  margin-top: 10px;
+  opacity: 0.6;
+  font-family: 'Roboto Mono', monospace;
+}
+.NavBar button:hover{
+  padding:10px;
+  border:none;
+  background-color:#B0A8B9;
+  color:#FFFADE;
+  font-weight:500;
+  border-radius:5px;
+  cursor: pointer;
+  margin-top: 10px;
+  opacity: 1;
+  font-style:italic;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.NavBar{
+  text-align: center;
+  padding: 10px
+  
+}
+.profile{
+
+    margin-left: 20px;
+    
+    border-radius: 1rem; 
+    
+    font-style: oblique;
+    color:purple;;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.profile_box{
+  vertical-align:top;
+  
+    width:45%;
+    margin-left: 20px;
+    background-color:#B0A8B9;
+    border-radius: 1rem; 
+    opacity: 0.8;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+button {
+  padding:10px;
+  border:none;
+  background-color:#B0A8B9;
+  color:#FFFADE;
+  font-weight:500;
+  border-radius:5px;
+  cursor: pointer;
+  margin-top: 50px;
+  opacity: 0.6;
+  font-family: 'Roboto Mono', monospace;
+}
+button:hover{
+  padding:10px;
+  border:none;
+  background-color:#B0A8B9;
+  color:#FFFADE;
+  font-weight:500;
+  border-radius:5px;
+  cursor: pointer;
+  margin-top: 50px;
+  opacity: 1;
+  font-style:italic;
+  font-family: 'Roboto Mono', monospace;
+}
+input[type=submit]{
+  margin-left: 10px;
+  padding:10px;
+  border:none;
+  background-color:#B0A8B9;
+  color:#FFFADE;
+  font-weight:500;
+  border-radius:5px;
+  cursor: pointer;
+  margin-top: 50px;
+  opacity: 0.6;
+  font-family: 'Roboto Mono', monospace;
+}
+input[type=submit]:hover{
+  margin-left: 10px;
+  padding:10px;
+  border:none;
+  background-color:#B0A8B9;
+  color:#FFFADE;
+  font-weight:500;
+  border-radius:5px;
+  cursor: pointer;
+  margin-top: 50px;
+  opacity: 1;
+  font-style:italic;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.order_list{
+  vertical-align:top;
+  color:purple;;
+  width:45%;
+  margin-left: 20px;
+  background-color:#B0A8B9;
+  border-radius: 1rem; 
+  opacity: 0.8;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+
+}
+.text-input{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-left: auto;
+  margin-right:auto;
+  width: 50%;
+  height: 40%;
 }

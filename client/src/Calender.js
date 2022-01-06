@@ -158,8 +158,8 @@ export default function MyCalendar({user}) {
                     type='submit'
                 />
      </form> : null}
-  
-      <div className="calendar">
+      <div className="float-container">
+      <div className="calendar" >
       <Calendar
         localizer={localizer}  
         events={eventList}
@@ -169,7 +169,7 @@ export default function MyCalendar({user}) {
         eventPropGetter={eventStyleGetter}
       />
      </div>
-     <div className="eventList">
+     <div className="events">
      <h2>Upcoming Events:</h2>
      {eventList.map((event)=><div key={event.id}><ul>{event.title}</ul> <ul>Time: {event.start} - {event.end}</ul> <ul>Location: {event.description}</ul>
      {event.vendor_id ===user.vendor.id? <div><button onClick={()=>handleDelete(event.id)}>Delete</button>
@@ -217,6 +217,7 @@ export default function MyCalendar({user}) {
                     type='submit'
                 />
      </form> : null}
+     </div>
      </div>
      
     </div>
