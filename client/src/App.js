@@ -15,6 +15,7 @@ import Yourstore from './Yourstore';
 import CustomerCalendar from './CalenderCustomer';
 import Email from './Email';
 
+
 function App() {
   const [user, setUser]= useState()
   const [loggedInUser, setLoggedInUser]= useState(false)
@@ -75,7 +76,7 @@ function App() {
   
  
   return (
-    <div className="App">
+    <div className="bg">
       <header className="App-header">
       My Happy Place
       </header>

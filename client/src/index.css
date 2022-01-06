@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Dancing+Script:wght@700&family=M+PLUS+1:wght@400;900&family=Qahiri&family=Raleway:wght@100&family=Roboto+Mono:wght@300&display=swap');
+
+
 body {
   margin: 0;
   font-family: 'Roboto Mono', monospace;
-  margin-left: 10px;
+  margin-left: 15px;
+  
+  /* background-image: url('/Users/Janecho/Development/final-project/final-project/client/src/background/background-1.jpeg'); */
+  min-height: 100%;
   background-image: url('/Users/Janecho/Development/final-project/final-project/client/src/background/background-1.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed
 }
+
+
+
 .App-header {
   text-align: center;
   font-family: 'Dancing Script', cursive;
@@ -23,14 +35,42 @@ body {
   
 }
 .merchContainer{
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(3, auto);
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.each_merch{
+  display: flex;
+  padding: 1rem;
+  width: 25%;
+}
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+}
+.merch_image{
+    margin-top: 10px;
+    margin-left: 20px;
+    border-radius: 1rem;
+  }
+.merch_info{
+  margin-left: 10px;
   font-size: 15px;
-  text-align: left;
-  padding: 3rem
 }
 .merchDesc{
   font-size: 12px;
+  margin-right: 10px;
+}
+.add_to_cart{
+  text-align: center;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  width: 50%;
 }

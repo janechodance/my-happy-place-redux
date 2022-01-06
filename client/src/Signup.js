@@ -43,7 +43,8 @@ function Signup({setUserId}) {
           is_vendor: ''
         });
         uploadAvatar(avatar, data)
-        navigate("/dashboard");
+        alert("You are ready to find your happy place!")
+        navigate("/login");
     ;
     })}
     function uploadAvatar(avatar, data){

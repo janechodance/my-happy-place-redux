@@ -19,12 +19,7 @@ function Email({env, user}) {
   
   const handleSubmit = event => {
     event.preventDefault()
-  
-    // const {
-    //   REACT_APP_EMAILJS_RECEIVER: receiverEmail,
-    //   REACT_APP_EMAILJS_TEMPLATEID: templateId,
-    //   REACT_APP_EMAILJS_USERID: user,
-    // } = env
+ 
   
     sendFeedback({
       templateId,

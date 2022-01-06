@@ -20,13 +20,22 @@ function Login({setUserId, setLoggedInUser}) {
   })
   .then(resp => resp.json())
   .then(data => {
-      console.log(data.id)
-      setUserId(data.id)
-      setLoginFormData({
+      if (data.id ===undefined){
+        alert("Please enter your username and password again!")
+        navigate("/login")
+        setLoginFormData({
           username: '',
           password: ''
-      });
-      navigate("/");
+        })
+      }else{
+        console.log(data.id)
+        setUserId(data.id)
+        setLoginFormData({
+            username: '',
+            password: ''
+        });
+        navigate("/dashboard");
+      }
   });
 }
     return (

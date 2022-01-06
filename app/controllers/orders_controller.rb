@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
         render json: order, status: :created
     end
     def get_orders
-        orders= Order.find_by(user_id: params[:id])
+        orders= Order.where(user_id: params[:id])
         render json: orders, status: :ok
     end
     private

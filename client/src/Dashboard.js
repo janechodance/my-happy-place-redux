@@ -11,22 +11,15 @@ function Dashboard({user, onAdd}) {
     fetch(`/vendorsmerch/${id}`)
     .then(resp=>resp.json())
     .then(data=>{ 
-      if (data !==null){
-        getMerch(data.id)
+      if (data !==[]){
+        let newMerchToDisplay = merchToDisplay
+        data.map((item)=>newMerchToDisplay.push(item))
+        console.log(newMerchToDisplay)
+        setMerchToDisplay(newMerchToDisplay)
       } 
       })
   }
-  
-  function getMerch(id){
-    fetch(`/merchandises/${id}`)
-    .then(resp=>resp.json())
-    .then(data=>{
-          console.log(id,merchToDisplay)
-          setMerchToDisplay(merchToDisplay=>[...merchToDisplay, data])           
-  })
-  }  
-
-    return (
+     return merchToDisplay !==[]? (
       <div>
       {console.log(merchToDisplay)}
        <h2>{user.name}'s happy place</h2>
@@ -34,7 +27,7 @@ function Dashboard({user, onAdd}) {
        {merchToDisplay.map((item)=><Merchandise key={item.id} id={item.id} item={item} allStore={true} dashboard={true} onAdd={onAdd}/>)}
        </div>
       </div>
-      )
+      ):<h1>Happy place is coming!</h1>
   }
 
   export default Dashboard;
