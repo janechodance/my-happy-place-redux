@@ -40,10 +40,10 @@ shantilife = Vendor.create(user_id: kim.id, store_name: 'Shanti life', category:
 shantilife.logo.attach(io: File.open('./public/logos/shantilife-logo.png'), filename: 'shantilife-logo.png',  content_type: 'application/png')
 
 Subscription.create(user_id: jenya.id, vendor_id: thecolorsofelephant.id)
-Subscription.create(user_id: jenya.id, vendor_id: elementalvybe.id)
+
 Subscription.create(user_id: jenya.id, vendor_id: soybellocandles.id)
 Subscription.create(user_id: keishma.id, vendor_id: thecolorsofelephant.id)
-Subscription.create(user_id: jane.id, vendor_id:elementalvybe.id)
+
 Subscription.create(user_id: lauren.id, vendor_id:thecolorsofelephant.id)
 Subscription.create(user_id: kim.id, vendor_id:thecolorsofelephant.id)
 

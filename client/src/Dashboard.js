@@ -5,6 +5,7 @@ function Dashboard({user, onAdd}) {
   const [merchToDisplay, setMerchToDisplay] = useState([])
   const [refresh, setRefresh] = useState(false)
   
+  
   useEffect(()=> {user.vendors.map((vendor)=> fetchMerch(vendor.id))},[])
   
   function fetchMerch(id){
