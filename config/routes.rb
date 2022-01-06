@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create, :update]
   resources :subscriptions, only: [:index, :show, :create]
   resources :vendors, only: [:index, :show]
-  resources :profilepics, only: [:index, :create]
+  resources :profilepics, only: [:index, :create, :update]
   resources :merchandises
   resources :events
   resources :orders, only: [:index, :create]

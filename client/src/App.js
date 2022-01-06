@@ -77,6 +77,7 @@ function App() {
  
   return (
     <div className="bg">
+      {console.log(loggedInUser)}
       <header className="App-header">
       My Happy Place
       </header>
@@ -88,12 +89,12 @@ function App() {
         <Route path='/' element={<Allstore user={user} loggedInUser={loggedInUser} setRefresh={setRefresh} refresh={refresh}/>} />
         {loggedInUser? <>
         <Route path='/dashboard' element={<Dashboard user={user} loggedInUser={loggedInUser} onAdd={onAdd}/>} />
-        <Route path='/profile' element={<Profile user={user}/>} />
+        <Route path='/profile' element={<Profile user={user} setRefresh={setRefresh} refresh={refresh}/>} />
         <Route path='/cart' element={<Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} user={user} setCartItems={setCartItems}/>} />
         <Route path='/subscription' element={<Subscription user={user} />} />
         <Route path='/order' element={<Order user={user}/>} /> 
         <Route path='/email' element={<Email user={user}/>}/>
-        {user.is_vendor ===true ?<Route path='/yourstore' element={<Yourstore id={user.id}/>}/>: null}
+        {user.is_vendor ===true ?<Route path='/yourstore' element={<Yourstore id={user.id} setRefresh={setRefresh} refresh={refresh}/>}/>: null}
         {user.is_vendor ===true? <Route path='/calendar' element={<MyCalendar user={user}/>} />: <Route path='/calendar' element={<CustomerCalendar user={user}/>} />}
         </>: null}
         </Routes>

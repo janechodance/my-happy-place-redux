@@ -24,7 +24,7 @@ function Dashboard({user, onAdd}) {
      return merchToDisplay !==[]? (
       <div>
       {console.log(merchToDisplay)}
-       <h2>{user.name}'s happy place</h2>
+       <h2 className="happy_place">{user.name}'s happy place</h2>
        <div className="merchContainer">
        {merchToDisplay.map((item)=><Merchandise key={item.id} id={item.id} item={item} allStore={true} dashboard={true} onAdd={onAdd}/>)}
        </div>

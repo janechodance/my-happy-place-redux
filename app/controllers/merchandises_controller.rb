@@ -16,6 +16,11 @@ class MerchandisesController < ApplicationController
         merchandise = Merchandise.create(merchandise_params)
         render json: merchandise, status: :created
     end
+    def update
+        merchandise = Merchandise.find(params[:id])
+        merchandise.update(merchandise_params)
+        render json: merchandise, status: :ok
+    end
     def merch
         merchandises= Merchandise.where(vendor_id: params[:id])
         if merchandises.exists?

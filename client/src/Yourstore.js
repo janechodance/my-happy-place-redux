@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react"
 import Merchandise from "./Merchandise";
-function Yourstore({id}) {
+function Yourstore({id, setRefresh, refresh}) {
     const [store, setStore]= useState()
     const [addMerchForm, setAddMerchForm]= useState(false)
+    const [update, setUpdate] =useState(false)
     useEffect(()=>{
       console.log(id)
       fetch(`vendors/${id}`)
@@ -52,6 +53,7 @@ function Yourstore({id}) {
         is_sold_out: false
       })
       setMerch(null)
+    
     }
     return (
       <div>
@@ -115,7 +117,7 @@ function Yourstore({id}) {
                 />
       </form>: null}
       <div className="merchContainer">
-      {store.vendor.merchandises.map((item)=> <Merchandise key={item.id} id={item.id} item={item}/>)}
+      {store.vendor.merchandises.map((item)=> <Merchandise key={item.id} id={item.id} item={item} setUpdate={setUpdate} update={update} setRefresh={setRefresh} refresh={refresh}/>)}
       </div>
       </>: 
       

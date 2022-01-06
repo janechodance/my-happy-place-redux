@@ -35,6 +35,14 @@ body {
   padding-top: 10px;
 
 }
+.happy_place{
+  font-family: 'Dancing Script', cursive;
+  font-size: 30px;
+  color: purple;
+  margin-top: 10px;
+  padding-top: 10px;
+
+}
 
 .calendar {
   vertical-align:top;
@@ -100,6 +108,14 @@ body {
   margin-bottom: 10px;
   width: 50%;
 }
+.store_merch{
+  
+  text-align: center;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  width: 50%;
+}
+
 .profile_pic{
   position: relative;
   width: 100px;
