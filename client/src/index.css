@@ -255,3 +255,132 @@ input[type=submit]:hover{
   width: 50%;
   height: 40%;
 }
+input[type=text] {
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-left: auto;
+  margin-right:auto;
+}
+.sign_up_form_container input[type=text]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-left: auto;
+  margin-right:auto;
+}
+.sign_up_form_container input[type=password]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.sign_up_form_container input[type=date]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.sign_up_form_container input[type=file]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.sign_up_form_container select{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+label {
+  display: inline-block;
+  vertical-align: baseline;
+  width: 100%;
+  margin-left: 25px;
+}
+.sign_up_form_container{
+  vertical-align:top;
+  
+    width:45%;
+    margin-left: 20px;
+    background-color:#B0A8B9;
+    border-radius: 1rem; 
+    opacity: 0.8;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.login_form_container input[type=password]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.login_form_container input[type=text]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-left: auto;
+  margin-right:auto;
+}
+input[type=number]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+input[type=file]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-left: auto;
+  margin-right:10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.subscription_box{
+  vertical-align:top;
+  
+    width:45%;
+    margin-left: 20px;
+    background-color:#B0A8B9;
+    border-radius: 1rem; 
+    opacity: 0.8;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-right:10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

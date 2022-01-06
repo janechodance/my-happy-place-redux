@@ -73,6 +73,7 @@ function Signup({setUserId}) {
                     onChange={handleSignupChange}
                     placeholder="username"
                 />
+                </label>
                 <label> Password: </label>
                 <label>
                 <input
@@ -93,7 +94,7 @@ function Signup({setUserId}) {
                     placeholder="confirm password"
                 />
                 </label> */}
-                </label>
+                
                 <label> Full name: </label>
                 <label> 
                 <input

@@ -63,7 +63,7 @@ function Yourstore({id, setRefresh, refresh}) {
       <h2>Category: {store.vendor.category}</h2>
       <h2>Description: {store.vendor.description}</h2>
       <button onClick={()=>setAddMerchForm(!addMerchForm)}>Add Merchandise</button>
-      {addMerchForm?<form onSubmit={handleSubmit}>
+      {addMerchForm?<form className="merch_form" onSubmit={handleSubmit}>
                 <label> Item Name: </label>
                 <label>
                 <input
