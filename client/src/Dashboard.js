@@ -24,6 +24,7 @@ function Dashboard({user, onAdd}) {
   }
      return merchToDisplay !==[]? (
       <div>
+        {console.log(merchToDisplay.length)}
       {console.log(merchToDisplay)}
        <h2 className="happy_place">{user.name}'s happy place</h2>
        <div className="merchContainer">

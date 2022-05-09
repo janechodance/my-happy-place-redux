@@ -74,8 +74,8 @@ treatibles.merch.attach(io: File.open('./public/merch/treatbites.jpg'), filename
 delta8_gummies = Merchandise.create(vendor_id: shantilife.id, item_name: 'Delta8 gummies', price: 35 ,description: "Woke Botanical 8gummies, Unlike Delta 9 THC, Delta 8 can give that one of a kind kick you are looking for. THC Delta 8 is well noted for its lower psychotropic potency and promising therapeutic potential. THC Delta 8 can give a mild high with less anxiety and insomnia. To enjoy the medicinal and uplifting benefits of THC Delta 8, one doesn’t need to be a smoker or vaper anymore.", inventory: 20, is_sold_out: false )
 delta8_gummies.merch.attach(io: File.open('./public/merch/gummies.jpg'), filename: 'gummies.jpg',  content_type: 'application/jpg')
 
-Event.create(vendor_id: thecolorsofelephant.id, title: "Soul Sister Vibez Pop Up Shop", start: DateTime.new(2022, 1, 8, 15, 0, 0), end: DateTime.new(2022, 1, 8, 20, 0, 0), type: "" , description: "251 Grand St, Brooklyn, NY 11211")
-Event.create(vendor_id: shantilife.id, title: "Warwick Market", start: DateTime.new(2022, 1, 15, 10, 0, 0), end: DateTime.new(2022, 1, 15, 15, 0, 0), type: "" , description: "21 South St, Warwick, NY 10990")
+Event.create(vendor_id: thecolorsofelephant.id, title: "Soul Sister Vibez Pop Up Shop", start: DateTime.new(2022, 3, 05, 15, 0, 0), end: DateTime.new(2022, 3, 05, 20, 0, 0), type: "" , description: "251 Grand St, Brooklyn, NY 11211")
+Event.create(vendor_id: shantilife.id, title: "Warwick Market", start: DateTime.new(2022, 3, 19, 10, 0, 0), end: DateTime.new(2022, 3, 19, 15, 0, 0), type: "" , description: "21 South St, Warwick, NY 10990")
 
 Order.create(user_id: jenya.id, total: 60, order_date: Date.new(2021,12,15))
 puts "done seeding..."
